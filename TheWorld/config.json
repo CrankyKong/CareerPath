@@ -1,0 +1,11 @@
+{
+  "MailSettings": {
+    "ToAddress": "loganskidmore91@gmail.com"
+  },
+  "ConnectionStrings": {
+    "WorldContextConnection": "Server=(localdb)\\MSSQLLocalDb;Database=TheWorldDb;Trusted_Connection=true;MultipleActiveResultSets=true;"
+  },
+  "Keys": {
+    "BingKey": "AhIRF-YUD0VK2CbK2pHRApRByDrL3JgL7S-WJS3doWNTp_q3eNzZXk08vlm4mTrR"
+  }
+}
