@@ -26,6 +26,7 @@ namespace TheWorld.Models
         {
             base.OnConfiguring(optionsBuilder);
 
+            //UseSqlServer tells what DB its going to use. 
             optionsBuilder.UseSqlServer(_config["ConnectionStrings:WorldContextConnection"]);
         }
     }

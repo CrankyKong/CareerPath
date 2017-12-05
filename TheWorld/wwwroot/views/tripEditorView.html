@@ -23,17 +23,32 @@
                 <span class="text-danger" ng-show="newStopForm.name.$error.required">Required</span>
                 <span class="text-danger" ng-show="newStopForm.name.$error.minlength">Must be 5 characters or more</span>
             </div>
+            <div class="form-group">
+                <label>Salary</label>
+                <input class="form-control" id="salary" name="salary" ng-model="vm.newStop.salary" required />
+                <span class="text-danger" ng-show="newStopForm.name.$error.required">Required</span>
+            </div>
+            <div class="form-group">
+                <label>Wishlist</label>
+                <input class="form-control" id="salary" name="salary" ng-model="vm.newStop.wishlist" type="checkbox" />
+            </div>
             <div><input type="submit" value="Add" class="btn btn-success" ng-disabled="newStopForm.$invalid"/></div>
         </form>
 
         <table class="table table-responsive table-striped">
             <tr>
                 <th>Location</th>
-                <th>Arrival</th>
+                <th>Start Date</th>
+                <th>Salary</th>
+                <th>WishList</th>
+                <th>Company</th>
             </tr>
             <tr ng-repeat="stop in vm.stops">
                 <td>{{ stop.name }}</td>
                 <td>{{ stop.arrival | date:shortDate }}</td>
+                <td>~ ${{ stop.salary }}</td>
+                <td>{{ stop.wishlist }}</td>
+                <td>{{ stop.organization.name }}</td>
             </tr>
         </table>       
     </div>

@@ -9,6 +9,7 @@
 
     <!-- snip -->
   </PropertyGroup>
+  
 
   <ItemGroup>
     <None Include="wwwroot\index.html" />

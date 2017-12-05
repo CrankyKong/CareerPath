@@ -4,6 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TheWorld.Models;
 
 namespace TheWorld.ViewModels
 {
@@ -21,5 +22,12 @@ namespace TheWorld.ViewModels
 
         [Required]
         public DateTime Arrival { get; set; }
+
+        public bool Wishlist { get; set; }
+
+        public double Salary { get; set; }
+
+        public OrganizationViewModel Organization { get; set; }
+
     }
 }

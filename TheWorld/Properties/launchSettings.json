@@ -20,7 +20,7 @@
       "launchBrowser": true,
       "environmentVariables": {
         "MailSettings__ToAddress": "bgates@bill.org",
-        "ASPNETCORE_ENVIRONMENT": "Testing"
+        "ASPNETCORE_ENVIRONMENT": "Development"
       },
       "applicationUrl": "http://localhost:50656/"
     }

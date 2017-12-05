@@ -8,9 +8,10 @@ using TheWorld.Models;
 namespace TheWorld.Migrations
 {
     [DbContext(typeof(WorldContext))]
-    partial class WorldContextModelSnapshot : ModelSnapshot
+    [Migration("20171203075652_UpdatedStops")]
+    partial class UpdatedStops
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
             modelBuilder
                 .HasAnnotation("ProductVersion", "1.1.2")
@@ -123,20 +124,6 @@ namespace TheWorld.Migrations
                     b.ToTable("AspNetUserTokens");
                 });
 
-            modelBuilder.Entity("TheWorld.Models.Organization", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<DateTime>("DateCreated");
-
-                    b.Property<string>("Name");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Organization");
-                });
-
             modelBuilder.Entity("TheWorld.Models.Stop", b =>
                 {
                     b.Property<int>("Id")
@@ -152,8 +139,6 @@ namespace TheWorld.Migrations
 
                     b.Property<int>("Order");
 
-                    b.Property<int?>("OrganizationId");
-
                     b.Property<double>("Salary");
 
                     b.Property<int?>("TripId");
@@ -161,8 +146,6 @@ namespace TheWorld.Migrations
                     b.Property<bool>("Wishlist");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("OrganizationId");
 
                     b.HasIndex("TripId");
 
@@ -276,10 +259,6 @@ namespace TheWorld.Migrations
 
             modelBuilder.Entity("TheWorld.Models.Stop", b =>
                 {
-                    b.HasOne("TheWorld.Models.Organization", "Organization")
-                        .WithMany()
-                        .HasForeignKey("OrganizationId");
-
                     b.HasOne("TheWorld.Models.Trip")
                         .WithMany("Stops")
                         .HasForeignKey("TripId");

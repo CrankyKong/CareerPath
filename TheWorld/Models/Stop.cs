@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace TheWorld.Models
 {
@@ -10,5 +11,9 @@ namespace TheWorld.Models
         public double Longitude { get; set; }
         public int Order { get; set; }
         public DateTime Arrival { get; set; }
+        public bool Wishlist { get; set; }
+        public double Salary { get; set; }
+                
+        public Organization Organization { get; set; }
     }
 }
