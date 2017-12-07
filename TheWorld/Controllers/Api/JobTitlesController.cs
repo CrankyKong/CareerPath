@@ -11,13 +11,13 @@ using TheWorld.ViewModels;
 
 namespace TheWorld.Controllers.Api
 {
-    [Route("api/organizations")]
-    public class OrganizationsController : Controller
+    [Route("api/jobtitles")]
+    public class JobTitlesController : Controller
     {
         private IWorldRepository _repository;
-        private ILogger<OrganizationsController> _logger;
+        private ILogger<JobTitlesController> _logger;
 
-        public OrganizationsController(IWorldRepository repository, ILogger<OrganizationsController> logger)
+        public JobTitlesController(IWorldRepository repository, ILogger<JobTitlesController> logger)
         {
             _repository = repository;
             _logger = logger;
@@ -28,30 +28,30 @@ namespace TheWorld.Controllers.Api
         {
             try
             {
-                var results = _repository.GetAllOrganizations();
-                return Ok(Mapper.Map<IEnumerable<OrganizationViewModel>>(results));
+                var results = _repository.GetAllJobTitles();
+                return Ok(Mapper.Map<IEnumerable<JobTitleViewModel>>(results));
             }
             catch (Exception ex)
             {
-                _logger.LogError($"Failed to get all organizations: {ex}");
+                _logger.LogError($"Failed to get all jobtitles: {ex}");
 
                 return BadRequest("Error occured");
             }
         }
 
         [HttpPost("")]
-        public async Task<IActionResult> Post([FromBody]OrganizationViewModel theOrganization)
+        public async Task<IActionResult> Post([FromBody]JobTitleViewModel theJobTitle)
         {
             if (ModelState.IsValid)
             {
                 //Save to the Database
-                var newOrganization = Mapper.Map<Organization>(theOrganization);
+                var newJobTitle = Mapper.Map<JobTitle>(theJobTitle);
 
-                _repository.AddOrganization(newOrganization);
+                _repository.AddJobTitle(newJobTitle);
 
                 if (await _repository.SaveChangesAsync())
                 {
-                    return Created($"api/organizations/{theOrganization.Name}", Mapper.Map<OrganizationViewModel>(newOrganization));
+                    return Created($"api/jobtitles/{theJobTitle.Name}", Mapper.Map<JobTitleViewModel>(newJobTitle));
                 }
             }
 
@@ -60,4 +60,5 @@ namespace TheWorld.Controllers.Api
         }
 
     }
+
 }

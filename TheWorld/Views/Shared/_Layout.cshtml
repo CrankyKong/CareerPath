@@ -19,9 +19,10 @@
             <li class="active"><a asp-controller="App" asp-action="Index">Home</a></li>
             <li><a  asp-controller="App" asp-action="About">About</a></li>
             <li><a  asp-controller="App" asp-action="Contact">Contact</a></li>
+            <li><a asp-controller="App" asp-action="WorldView">World View</a></li>
         @if (User.Identity.IsAuthenticated)
         {
-            <li><a asp-controller="App" asp-action="Trips">Trips</a></li>
+            <li><a asp-controller="App" asp-action="Trips">Paths</a></li>
             <li><a asp-controller="Auth" asp-action="Logout">Logout</a></li>
         }
         </ul>
@@ -56,7 +57,7 @@
         </div>
         <div id="footer" class="container-fluid">
             <div class="navbar navbar-inverse navbar-fixed-bottom">
-                <h4 class="text-center text-info">&copy; 2015 Orange Iguanas Ltd.</h4>
+                <h4 class="text-center text-info">&copy; 2017 Orange Iguanas Ltd.</h4>
             </div>
         </div>
     </div>

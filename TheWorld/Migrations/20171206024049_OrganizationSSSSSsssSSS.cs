@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Metadata;
 
 namespace TheWorld.Migrations
 {
-    public partial class AddingOrganization : Migration
+    public partial class OrganizationSSSSSsssSSS : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -15,7 +15,7 @@ namespace TheWorld.Migrations
                 nullable: true);
 
             migrationBuilder.CreateTable(
-                name: "Organization",
+                name: "Organizations",
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
@@ -25,7 +25,7 @@ namespace TheWorld.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Organization", x => x.Id);
+                    table.PrimaryKey("PK_Organizations", x => x.Id);
                 });
 
             migrationBuilder.CreateIndex(
@@ -34,10 +34,10 @@ namespace TheWorld.Migrations
                 column: "OrganizationId");
 
             migrationBuilder.AddForeignKey(
-                name: "FK_Stops_Organization_OrganizationId",
+                name: "FK_Stops_Organizations_OrganizationId",
                 table: "Stops",
                 column: "OrganizationId",
-                principalTable: "Organization",
+                principalTable: "Organizations",
                 principalColumn: "Id",
                 onDelete: ReferentialAction.Restrict);
         }
@@ -45,11 +45,11 @@ namespace TheWorld.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropForeignKey(
-                name: "FK_Stops_Organization_OrganizationId",
+                name: "FK_Stops_Organizations_OrganizationId",
                 table: "Stops");
 
             migrationBuilder.DropTable(
-                name: "Organization");
+                name: "Organizations");
 
             migrationBuilder.DropIndex(
                 name: "IX_Stops_OrganizationId",

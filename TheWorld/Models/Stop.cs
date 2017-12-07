@@ -15,5 +15,6 @@ namespace TheWorld.Models
         public double Salary { get; set; }
                 
         public Organization Organization { get; set; }
+        public JobTitle JobTitle { get; set; }
     }
 }

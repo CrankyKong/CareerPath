@@ -40,6 +40,34 @@ namespace TheWorld.Models
             _context.Add(trip);
         }
 
+        public IEnumerable<Organization> GetAllOrganizations()
+        {
+            _logger.LogInformation("Getting All Organizations from the Database");
+
+            return _context.Organizations.ToList();
+        }
+
+        public Organization GetOrganizationsById(int id)
+        {
+            _logger.LogInformation("Getting Organizations from the Database By Id");
+
+            return _context.Organizations
+                .Where( t => t.Id == id)
+                .FirstOrDefault();
+        }
+
+        public IEnumerable<JobTitle> GetAllJobTitles()
+        {
+            _logger.LogInformation("Getting All JobTitles from the Database");
+
+            return _context.JobTitles.ToList();
+        }
+
+        public void AddJobTitle(JobTitle jobTitle)
+        {
+            _context.Add(jobTitle);
+        }
+
         public IEnumerable<Trip> GetAllTrips()
         {
             _logger.LogInformation("Getting All Trips from the Database");
@@ -52,6 +80,8 @@ namespace TheWorld.Models
             return _context.Trips
                 .Include(t => t.Stops)
                 .ThenInclude(s => s.Organization)
+                .Include(t => t.Stops)
+                .ThenInclude(s => s.JobTitle)
                 .Where(t => t.Name == tripName)
                 .FirstOrDefault();
         }
@@ -61,6 +91,8 @@ namespace TheWorld.Models
             return _context.Trips
                 .Include(t => t.Stops)
                 .ThenInclude(s => s.Organization)
+                .Include(t => t.Stops)
+                .ThenInclude(s => s.JobTitle)
                 .Where(t => t.UserName == username)
                 .ToList();
         }
@@ -70,6 +102,8 @@ namespace TheWorld.Models
             return _context.Trips
                 .Include(t => t.Stops)
                 .ThenInclude(s => s.Organization)
+                .Include(t => t.Stops)
+                .ThenInclude(s => s.JobTitle)
                 .Where(t => t.Name == tripName && t.UserName == username)
                 .FirstOrDefault();
         }

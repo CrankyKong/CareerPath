@@ -10,17 +10,55 @@
 
         vm.tripName = $routeParams.tripName;
         vm.stops = [];
+        vm.organizations = [];
+        vm.jobTitles = [];
         vm.errorMessage = "";
         vm.isBusy = true;
         vm.newStop = {};
 
-        var url = "/api/trips/" + vm.tripName + "/stops";
+        var url = "/api/organizations";
+
+        $http.get(url)
+            .then(function (response) {
+                //success
+                angular.copy(response.data, vm.organizations);
+                vm.organizations.sort(function (a, b) {
+                    var alc = a.name.toLowerCase(), blc = b.name.toLowerCase();
+                    return alc > blc ? 1 : alc < blc ? -1 : 0;
+                });
+            }, function (err) {
+                //error
+                vm.errorMessage = "Failed to load organizations";
+            })
+            .finally(function () {
+                vm.isBusy = false;
+            }); 
+
+        url = "/api/jobtitles";
+
+        $http.get(url)
+            .then(function (response) {
+                //success
+                angular.copy(response.data, vm.jobTitles);
+                vm.jobTitles.sort(function (a, b) {
+                    var alc = a.name.toLowerCase(), blc = b.name.toLowerCase();
+                    return alc > blc ? 1 : alc < blc ? -1 : 0;
+                });
+            }, function (err) {
+                //error
+                vm.errorMessage = "Failed to load job titles";
+            })
+            .finally(function () {
+                vm.isBusy = false;
+            }); 
+
+        url = "/api/trips/" + vm.tripName + "/stops";
 
         $http.get(url)
             .then(function (response) {
                 //success
                 angular.copy(response.data, vm.stops);
-                _showMap(vm.stops);
+                _showMap(vm.stops);                
             }, function (err) {
                 //error
                 vm.errorMessage = "Failed to load stops";
@@ -29,9 +67,11 @@
                 vm.isBusy = false;
             }); 
 
-        vm.addStop = function () {
-            vm.isBusy = true;
+        
 
+        vm.addStop = function () {
+            vm.newStop.order = vm.stops.length + 1;
+            vm.isBusy = true;
             $http.post(url, vm.newStop)
                 .then(function (response) {
                     //success

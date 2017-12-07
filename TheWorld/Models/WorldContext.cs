@@ -21,6 +21,8 @@ namespace TheWorld.Models
 
         public DbSet<Trip> Trips { get; set; }
         public DbSet<Stop> Stops { get; set; }
+        public DbSet<Organization> Organizations { get; set; }
+        public DbSet<JobTitle> JobTitles { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

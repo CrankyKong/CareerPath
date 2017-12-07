@@ -29,5 +29,7 @@ namespace TheWorld.ViewModels
 
         public OrganizationViewModel Organization { get; set; }
 
+        public JobTitleViewModel JobTitle { get; set; }
+
     }
 }

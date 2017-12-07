@@ -9,6 +9,17 @@
         
         <form novalidate name="newStopForm" ng-submit="vm.addStop()">
             <div class="form-group">
+                <!--<input name="organization" id="organization" type="text" placeholder="Choose an organization" ng-model="vm.newStop.organization" typeahead="org.name for org in vm.organizations | filter:$viewValue | limitTo:8" class="form-control">-->
+                <select ng-model="vm.newStop.organization" ng-options="org.name for org in vm.organizations">
+                    <option value="" label="Select an item"></option>
+                </select>
+            </div>
+            <div class="form-group">
+                <select ng-model="vm.newStop.jobTitle" ng-options="job.name for job in vm.jobTitles">
+                    <option value="" label="Select an item"></option>
+                </select>
+            </div>
+            <div class="form-group">
                 <label>Date</label>
                 <input class="form-control" id="arrival" name="arrival" 
                        ng-model="vm.newStop.arrival" 
@@ -28,29 +39,30 @@
                 <input class="form-control" id="salary" name="salary" ng-model="vm.newStop.salary" required />
                 <span class="text-danger" ng-show="newStopForm.name.$error.required">Required</span>
             </div>
-            <div class="form-group">
-                <label>Wishlist</label>
-                <input class="form-control" id="salary" name="salary" ng-model="vm.newStop.wishlist" type="checkbox" />
-            </div>
+            <div class="form-check">
+                <label class="form-check-label"><input class="form-check-input" id="wishlist" name="wishlist" ng-model="vm.newStop.wishlist" type="checkbox" /> Wishlist</label>
+            </div>           
             <div><input type="submit" value="Add" class="btn btn-success" ng-disabled="newStopForm.$invalid"/></div>
         </form>
 
         <table class="table table-responsive table-striped">
             <tr>
+                <th>Job Tile</th>
+                <th>Company</th>
                 <th>Location</th>
                 <th>Start Date</th>
                 <th>Salary</th>
-                <th>WishList</th>
-                <th>Company</th>
+                <!--<th>WishList</th>-->
             </tr>
             <tr ng-repeat="stop in vm.stops">
+                <td>{{ stop.jobTitle.name }}</td>
+                <td>{{ stop.organization.name }}</td>
                 <td>{{ stop.name }}</td>
                 <td>{{ stop.arrival | date:shortDate }}</td>
                 <td>~ ${{ stop.salary }}</td>
-                <td>{{ stop.wishlist }}</td>
-                <td>{{ stop.organization.name }}</td>
+                <!--<td>{{ stop.wishlist }}</td>-->                
             </tr>
-        </table>       
+        </table> 
     </div>
     <div class="col-md-9">
         <h2>The Map</h2>

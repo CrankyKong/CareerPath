@@ -1,0 +1,122 @@
+{
+  "nodes": [
+    {
+      "atom": "BYU-I",
+      "size": 50,
+      "url": "http://byui.edu/"
+    },
+    {
+      "atom": "Microsoft",
+      "size": 20,
+      "url": "http://www.microsoft.com/"
+    },
+    {
+      "atom": "Starbucks",
+      "size": 20,
+      "url": "http://www.starbucks.com/"
+    },
+    {
+      "atom": "Intel",
+      "size": 20,
+      "url": "http://www.intel.com/"
+    },
+    {
+      "atom": "USU",
+      "size": 50,
+      "url": "http://www.usu.edu/"
+    },
+    {
+      "atom": "Microsoft",
+      "size": 20,
+      "url": "http://www.example.com/"
+    },
+    {
+      "atom": "Walmart",
+      "size": 20,
+      "url": "http://www.example.com/"
+    },
+    {
+      "atom": "HP",
+      "size": 20,
+      "url": "http://www.example.com/"
+    },
+    {
+      "atom": "Stanford",
+      "size": 50,
+      "url": "http://www.stanford.edu/"
+    },
+    {
+      "atom": "Starbucks",
+      "size": 20,
+      "url": "http://www.example.com/"
+    },
+    {
+      "atom": "Walmart",
+      "size": 20,
+      "url": "http://www.example.com/"
+    },
+    {
+      "atom": "McDonalds",
+      "size": 20,
+      "url": "http://www.example.com/"
+    },
+    {
+      "atom": "Drug Dealing",
+      "size": 20,
+      "url": "http://www.example.com/"
+    }
+  ],
+  "links": [
+    {
+      "source": 0,
+      "target": 1,
+      "bond": 1
+    },
+    {
+      "source": 0,
+      "target": 2,
+      "bond": 1
+    },
+    {
+      "source": 0,
+      "target": 3,
+      "bond": 1
+    },
+    {
+      "source": 4,
+      "target": 5,
+      "bond": 1
+    },
+    {
+      "source": 4,
+      "target": 6,
+      "bond": 1
+    },
+    {
+      "source": 4,
+      "target": 7,
+      "bond": 1
+    },
+    {
+      "source": 8,
+      "target": 10,
+      "bond": 1
+    },
+    {
+      "source": 8,
+      "target": 11,
+      "bond": 1
+    },
+    {
+      "source": 8,
+      "target": 9,
+      "bond": 1
+    },
+    {
+      "source": 8,
+      "target": 12,
+      "bond": 1
+    }
+
+  ]
+}

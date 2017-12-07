@@ -53,6 +53,11 @@ namespace TheWorld.Controllers.Web
             return View();
         }
 
+        public IActionResult WorldView()
+        {
+            return View();
+        }
+
         [HttpPost]
         public IActionResult Contact(ContactViewModel model)
         {

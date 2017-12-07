@@ -123,6 +123,7 @@ namespace TheWorld
                 config.CreateMap<TripViewModel, Trip>().ReverseMap();
                 config.CreateMap<StopViewModel, Stop>().ReverseMap();
                 config.CreateMap<OrganizationViewModel, Organization>().ReverseMap();
+                config.CreateMap<JobTitleViewModel, JobTitle>().ReverseMap();
             });
 
             app.UseMvc(config =>
