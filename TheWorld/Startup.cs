@@ -49,6 +49,7 @@ namespace TheWorld
             else
             {
                 //Implement a real Mail Service
+                services.AddScoped<IMailService, DebugMailService>();
             }
 
             services.AddDbContext<WorldContext>();

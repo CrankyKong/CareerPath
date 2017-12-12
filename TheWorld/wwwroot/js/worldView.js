@@ -1,7 +1,7 @@
 ﻿// worldView.js
 
 var width = 960,
-    height = 500;
+    height = 800;
 var color = d3.scale.category20();
 var radius = d3.scale.sqrt()
     .range([0, 6]);

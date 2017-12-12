@@ -20,7 +20,7 @@ namespace TheWorld.Models
 
         public async Task EnsureSeedData()
         {
-            if (await _userManager.FindByEmailAsync("sam.hastings@theworld.com") == null)
+            if (await _userManager.FindByEmailAsync("loganskidmore91@gmail.com") == null)
             {
                 var user = new WorldUser()
                 {
