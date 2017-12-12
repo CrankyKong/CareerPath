@@ -3,8 +3,21 @@
     Layout = "_Layout";
 }
 @section Scripts {
-<link rel="stylesheet" href="~/css/d3style.css" />
-<script src="https://d3js.org/d3.v3.min.js"></script>
-<script src="~/js/worldView.js"></script>
+    <link rel="stylesheet" href="~/css/d3style.css" />
+    <script src="~/lib/underscore/underscore-min.js"></script>
+    <script src="~/lib/angular/angular.min.js"></script>
+    <script src="~/lib/angular-route/angular-route.min.js"></script>
+    <script src="https://d3js.org/d3.v3.min.js"></script>
+    
+    <script src="~/js/simpleControls.js"></script>
+    <script src="~/js/app-world.js"></script>
+    <script src="~/js/worldController.js"></script>
+
 }
 <h1>The World</h1>
+
+<div class="row" ng-app="app-world">
+
+    <div ng-view></div>
+
+</div>

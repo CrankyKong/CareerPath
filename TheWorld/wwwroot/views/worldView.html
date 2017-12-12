@@ -1,0 +1,89 @@
+﻿<div class="col-md-6 col-md-offset-3">
+    <div>
+        <button type="button" ng-class="displayTable ? 'btn btn-primary btn-sm active' : 'btn btn-primary btn-sm'"  ng-click="displayBubbles = false; displayTable = true" ng-init="displayTable = true">
+            Table
+        </button>
+        <button type="button"  ng-class="displayBubbles ? 'btn btn-primary btn-sm active' : 'btn btn-primary btn-sm'" ng-click="displayBubbles = true; displayTable = false" ng-init="displayBubbles = false">
+            Bubbles
+        </button>
+    </div><br />
+    <div ng-show="displayTable">        
+        <div class="text-danger" ng-show="vm.errorMessage">{{ vm.errorMessage }}</div>
+        <wait-cursor display-when="vm.isBusy"></wait-cursor>
+        <table class="table table-responsive table-striped">
+            <tr ng-repeat-start="organization in vm.organizations">
+                <td colspan="3">{{organization.name}}</td>
+            </tr>
+            <tr ng-repeat-end>
+                <td>Average Salary: $0.00</td>
+                <td>Average Length: {{organization.dateCreated | date: 'MM-dd-yyyy'}}</td>
+                <td><button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#myModal">View Mentors</button></td>
+            </tr>
+
+        </table>
+        <div class="text-danger" ng-show="vm.errorMessage">{{ vm.errorMessage }}</div>
+        <table class="table table-responsive table-striped" ng-hide="vm.organizations.length">
+            <tr>
+                <td>There are no organizations</td>
+            </tr>
+        </table>
+
+       
+    </div>
+    <div id="bubbles" ng-show="displayBubbles">
+
+
+    </div>
+</div>
+<!-- Modal -->
+<div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Willing Mentors</h4>
+            </div>
+            <div class="modal-body">
+                <p>The following users have stated they are happy to help anyone interested in this Organization:</p>
+                <table class="table table-responsive table-striped">
+                    <thead>
+                        <tr>
+                            <td></td>
+                            <td>User</td>
+                            <td>Email Address</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><i class="fa fa-envelope"></i> </td>
+                            <td>Logan Skidmore</td>
+                            <td>loganskidmore91@gmail.com</td>
+                        </tr>
+                        <tr>
+                            <td><i class="fa fa-envelope"></i> </td>
+                            <td>Logan Skidmore</td>
+                            <td>loganskidmore91@gmail.com</td>
+                        </tr>
+                        <tr>
+                            <td><i class="fa fa-envelope"></i> </td>
+                            <td>Logan Skidmore</td>
+                            <td>loganskidmore91@gmail.com</td>
+                        </tr>
+                        <tr>
+                            <td><i class="fa fa-envelope"></i> </td>
+                            <td>Logan Skidmore</td>
+                            <td>loganskidmore91@gmail.com</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+<script src="../js/worldView.js"></script>

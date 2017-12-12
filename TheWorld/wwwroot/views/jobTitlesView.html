@@ -1,0 +1,34 @@
+﻿<div class="col-md-6 col-md-offset-3">
+    <div>
+        <h3>Reminder:</h3>
+        <p>Please ensure that the Job Title you are adding is not already in our database under a different name or spelled incorrectly. (example: Student and College Student). If you encounter any duplicates please contact us at <a href="Contact">Contact</a></p>
+    </div>
+    <div class="text-danger" ng-show="vm.errorMessage">{{ vm.errorMessage }}</div>
+    <wait-cursor display-when="vm.isBusy"></wait-cursor>
+    <table class="table table-responsive table-striped">
+        <tr ng-repeat="jobTitle in vm.jobTitles">
+            <td>{{jobTitle.name}}</td>
+            <td>{{jobTitle.dateCreated | date: 'MM-dd-yyyy'}}</td>
+        </tr>
+    </table>
+    <div class="text-danger" ng-show="vm.errorMessage">{{ vm.errorMessage }}</div>
+    <table class="table table-responsive table-striped" ng-hide="vm.jobTitles.length">
+        <tr>
+            <td>There are no jobTitles</td>
+        </tr>
+    </table>
+
+    <form novalidate name="newJobTitleForm" ng-submit="vm.addJobTitle()">
+        <div class="form-group">
+            <label for="name">Add New JobTitle:</label>
+            <input class="form-control" type="text" id="name" name="name" ng-model="vm.newJobTitle.name" required ng-minlength="5" />
+            <span ng-show="newJobTitleForm.name.$error.required" class="text-warning">Name is required.</span>
+            <span ng-show="newJobTitleForm.name.$error.minlength" class="text-warning">Name must be at least 5 characters.</span>
+        </div>
+        <div>
+            <input type="submit" value="Add" class="btn btn-success btn-sm"
+                   ng-disabled="newJobTitleForm.$invalid" />
+        </div>
+    </form>
+
+</div>

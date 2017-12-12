@@ -1,0 +1,1 @@
+!function(){"use strict";angular.module("app-world",["simpleControls","ngRoute"]).config(["$routeProvider",function(o){o.when("/",{controller:"worldController",controllerAs:"vm",templateUrl:"/views/worldView.html"}),o.otherwise({redirectTo:"/"})}])}();

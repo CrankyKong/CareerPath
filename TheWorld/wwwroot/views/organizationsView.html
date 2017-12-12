@@ -1,0 +1,34 @@
+﻿<div class="col-md-6 col-md-offset-3">
+    <div>
+        <h3>Reminder:</h3>
+        <p>Please ensure that the organization you are adding is not already in our database under a different name or spelled incorrectly. (example: BYUI and Brigham Young University - Idaho). If you encounter any duplicates please contact us at <a href="Contact">Contact</a></p>
+    </div>
+    <div class="text-danger" ng-show="vm.errorMessage">{{ vm.errorMessage }}</div>
+    <wait-cursor display-when="vm.isBusy"></wait-cursor>
+    <table class="table table-responsive table-striped">
+        <tr ng-repeat="organization in vm.organizations">
+            <td>{{organization.name}}</td>
+            <td>{{organization.dateCreated | date: 'MM-dd-yyyy'}}</td>
+        </tr>
+    </table>
+    <div class="text-danger" ng-show="vm.errorMessage">{{ vm.errorMessage }}</div>
+    <table class="table table-responsive table-striped" ng-hide="vm.organizations.length">
+        <tr>
+            <td>There are no organizations</td>
+        </tr>
+    </table>
+
+    <form novalidate name="newOrganizationForm" ng-submit="vm.addOrganization()">
+        <div class="form-group">
+            <label for="name">Add New Organization:</label>
+            <input class="form-control" type="text" id="name" name="name" ng-model="vm.newOrganization.name" required ng-minlength="5" />
+            <span ng-show="newOrganizationForm.name.$error.required" class="text-warning">Name is required.</span>
+            <span ng-show="newOrganizationForm.name.$error.minlength" class="text-warning">Name must be at least 5 characters.</span>
+        </div>
+        <div>
+            <input type="submit" value="Add" class="btn btn-success btn-sm"
+                   ng-disabled="newOrganizationForm.$invalid" />
+        </div>
+    </form>
+
+</div>

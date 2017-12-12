@@ -5,7 +5,8 @@ var width = 960,
 var color = d3.scale.category20();
 var radius = d3.scale.sqrt()
     .range([0, 6]);
-var svg = d3.select("body").append("svg")
+var bubbles = document.getElementById("bubbles");
+var svg = d3.select(bubbles).append("svg")
     .attr("width", width)
     .attr("height", height);
 var force = d3.layout.force()

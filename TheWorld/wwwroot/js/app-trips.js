@@ -4,7 +4,7 @@
     "use strict";
 
     //Creating Module []
-    angular.module("app-trips", ["simpleControls", "ngRoute"])
+    angular.module("app-trips", ["simpleControls", "ngRoute" ])
         .config(function ($routeProvider) {
 
             $routeProvider.when("/", {
@@ -17,6 +17,18 @@
                 controller: "tripEditorController",
                 controllerAs: "vm",
                 templateUrl: "/views/tripEditorView.html"
+            });
+
+            $routeProvider.when("/organizations", {
+                controller: "organizationsController",
+                controllerAs: "vm",
+                templateUrl: "/views/organizationsView.html"
+            });
+
+            $routeProvider.when("/jobTitles", {
+                controller: "jobTitlesController",
+                controllerAs: "vm",
+                templateUrl: "/views/jobTitlesView.html"
             });
 
             $routeProvider.otherwise({ redirectTo: "/"});

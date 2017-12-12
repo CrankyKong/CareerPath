@@ -26,6 +26,18 @@
                     var alc = a.name.toLowerCase(), blc = b.name.toLowerCase();
                     return alc > blc ? 1 : alc < blc ? -1 : 0;
                 });
+
+                var obj = {};
+
+                for (var i = 0, len = vm.organizations.length; i < len; i++) {
+                    obj[vm.organizations[i]['name']] = vm.organizations[i];
+                }
+
+                vm.organizations = new Array();
+                for (var key in obj) {
+                    vm.organizations.push(obj[key]);
+                }
+
             }, function (err) {
                 //error
                 vm.errorMessage = "Failed to load organizations";
@@ -44,6 +56,18 @@
                     var alc = a.name.toLowerCase(), blc = b.name.toLowerCase();
                     return alc > blc ? 1 : alc < blc ? -1 : 0;
                 });
+
+                var obj = {};
+
+                for (var i = 0, len = vm.jobTitles.length; i < len; i++) {
+                    obj[vm.jobTitles[i]['name']] = vm.jobTitles[i];
+                }
+
+                vm.jobTitles = new Array();
+                for (var key in obj) {
+                    vm.jobTitles.push(obj[key]);
+                }
+
             }, function (err) {
                 //error
                 vm.errorMessage = "Failed to load job titles";
